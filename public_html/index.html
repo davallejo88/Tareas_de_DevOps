@@ -1,0 +1,379 @@
+Punto 3
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación de Configuración</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #2c3e50;
+        }
+        code {
+            display: block;
+            background-color: #ecf0f1;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Instalación y Configuración de Apache</h2>
+    <div class="section">
+        <h3>1. Instalación de Apache</h3>
+        <code>apt-get install apache2</code>
+    </div>
+    <div class="section">
+        <h3>2. Iniciar el servicio de Apache2</h3>
+        <code>sudo systemctl start apache2</code>
+    </div>
+    <div class="section">
+        <h3>3. Modificar el puerto por defecto (80 a 8088)</h3>
+        <code>vi /etc/apache2/ports.conf</code>
+    </div>
+    <div class="section">
+        <h3>4. Proporcionar permisos sobre las rutas</h3>
+        <code>sudo chmod 0777 /var/www/html/</code>
+        <code>sudo chmod 0755 /var/www/html/</code>
+        <code>sudo chmod 0644 /var/www/html/index.html</code>
+    </div>
+
+    <hr>
+
+    <h2>Información del Sistema Operativo</h2>
+    <div class="section">
+        <h3>1. SO Ubuntu 24.04 LTS</h3>
+        <code>cat /etc/*release</code>
+    </div>
+    <div class="section">
+        <h3>2. Espacio en Disco</h3>
+        <code>df -H</code>
+        <table>
+            <tr>
+                <th>S.ficheros</th>
+                <th>Tamaño</th>
+                <th>Usados</th>
+                <th>Disp</th>
+                <th>Uso%</th>
+                <th>Montado en</th>
+            </tr>
+            <tr>
+                <td>tmpfs</td>
+                <td>424M</td>
+                <td>1,8M</td>
+                <td>422M</td>
+                <td>1%</td>
+                <td>/run</td>
+            </tr>
+            <tr>
+                <td>/dev/sda2</td>
+                <td>33G</td>
+                <td>11G</td>
+                <td>21G</td>
+                <td>34%</td>
+                <td>/</td>
+            </tr>
+            <tr>
+                <td>tmpfs</td>
+                <td>2,2G</td>
+                <td>0</td>
+                <td>2,2G</td>
+                <td>0%</td>
+                <td>/dev/shm</td>
+            </tr>
+            <tr>
+                <td>tmpfs</td>
+                <td>5,3M</td>
+                <td>8,2k</td>
+                <td>5,3M</td>
+                <td>1%</td>
+                <td>/run/lock</td>
+            </tr>
+            <tr>
+                <td>tmpfs</td>
+                <td>424M</td>
+                <td>123k</td>
+                <td>424M</td>
+                <td>1%</td>
+                <td>/run/user/1000</td>
+            </tr>
+        </table>
+    </div>
+    <div class="section">
+        <h3>3. Cantidad de Memoria RAM</h3>
+        <code>free -mt</code>
+        <table>
+            <tr>
+                <th></th>
+                <th>Total</th>
+                <th>Usado</th>
+                <th>Libre</th>
+                <th>Compartido</th>
+                <th>Búf/Caché</th>
+                <th>Disponible</th>
+            </tr>
+            <tr>
+                <td>Mem:</td>
+                <td>4035</td>
+                <td>1378</td>
+                <td>1099</td>
+                <td>35</td>
+                <td>1827</td>
+                <td>2657</td>
+            </tr>
+            <tr>
+                <td>Inter:</td>
+                <td>4034</td>
+                <td>0</td>
+                <td>4034</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Total:</td>
+                <td>8070</td>
+                <td>1378</td>
+                <td>5134</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <div class="section">
+        <h3>4. Versión del kernel de Linux</h3>
+        <code>uname -a</code>
+        <p>Linux testcloud 6.8.0-35-generic #35-Ubuntu SMP PREEMPT_DYNAMIC Mon May 20 15:51:52 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux</p>
+    </div>
+    <div class="section">
+        <h3>5. Características de CPU</h3>
+        <code>htop y lscpu</code>
+        <table>
+            <tr>
+                <td><strong>Arquitectura:</strong></td>
+                <td>x86_64</td>
+            </tr>
+            <tr>
+                <td><strong>Modo(s) de operación de las CPUs:</strong></td>
+                <td>32-bit, 64-bit</td>
+            </tr>
+            <tr>
+                <td><strong>Address sizes:</strong></td>
+                <td>39 bits physical, 48 bits virtual</td>
+            </tr>
+            <tr>
+                <td><strong>Orden de los bytes:</strong></td>
+                <td>Little Endian</td>
+            </tr>
+            <tr>
+                <td><strong>CPU(s):</strong></td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td><strong>Lista de la(s) CPU(s) en línea:</strong></td>
+                <td>0-3</td>
+            </tr>
+            <tr>
+                <td><strong>ID de fabricante:</strong></td>
+                <td>GenuineIntel</td>
+            </tr>
+            <tr>
+                <td><strong>Nombre del modelo:</strong></td>
+                <td>Intel(R) Core(TM) i5-10210U CPU @ 1.60GHz</td>
+            </tr>
+            <tr>
+                <td><strong>BIOS Model name:</strong></td>
+                <td>CPU @ 0.0GHz</td>
+            </tr>
+            <tr>
+                <td><strong>BIOS CPU family:</strong></td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td><strong>Familia de CPU:</strong></td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td><strong>Modelo:</strong></td>
+                <td>142</td>
+            </tr>
+            <tr>
+                <td><strong>Hilo(s) de procesamiento por núcleo:</strong></td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td><strong>Núcleo(s) por «socket»:</strong></td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td><strong>«Socket(s)»:</strong></td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td><strong>Revisión:</strong></td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td><strong>BogoMIPS:</strong></td>
+                <td>4224,00</td>
+            </tr>
+            <tr>
+                <td><strong>Indicadores:</strong></td>
+                <td>fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl xtopology nonstop
+
+_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx rdrand hyper visor lahf_lm abm 3dnowprefetch fsgsbase bmi1 avx2 bmi2 invpcid rdseed clflushopt arat md_clear flush_l1d arch_capabilities</td>
+            </tr>
+            <tr>
+                <td><strong>Virtualization features:</strong></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Fabricante del hipervisor:</strong></td>
+                <td>KVM</td>
+            </tr>
+            <tr>
+                <td><strong>Tipo de virtualización:</strong></td>
+                <td>lleno</td>
+            </tr>
+            <tr>
+                <td><strong>Caches (sum of all):</strong></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>L1d:</strong></td>
+                <td>128 KiB (4 instances)</td>
+            </tr>
+            <tr>
+                <td><strong>L1i:</strong></td>
+                <td>128 KiB (4 instances)</td>
+            </tr>
+            <tr>
+                <td><strong>L2:</strong></td>
+                <td>1 MiB (4 instances)</td>
+            </tr>
+            <tr>
+                <td><strong>L3:</strong></td>
+                <td>24 MiB (4 instances)</td>
+            </tr>
+            <tr>
+                <td><strong>NUMA:</strong></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Modo(s) NUMA:</strong></td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td><strong>CPU(s) del nodo NUMA 0:</strong></td>
+                <td>0-3</td>
+            </tr>
+            <tr>
+                <td><strong>Vulnerabilities:</strong></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Gather data sampling:</strong></td>
+                <td>Unknown: Dependent on hypervisor status</td>
+            </tr>
+            <tr>
+                <td><strong>Itlb multihit:</strong></td>
+                <td>KVM: Mitigation: VMX unsupported</td>
+            </tr>
+            <tr>
+                <td><strong>L1tf:</strong></td>
+                <td>Not affected</td>
+            </tr>
+            <tr>
+                <td><strong>Mds:</strong></td>
+                <td>Not affected</td>
+            </tr>
+            <tr>
+                <td><strong>Meltdown:</strong></td>
+                <td>Not affected</td>
+            </tr>
+            <tr>
+                <td><strong>Mmio stale data:</strong></td>
+                <td>Vulnerable: Clear CPU buffers attempted, no microcode; SMT Host state unknown</td>
+            </tr>
+            <tr>
+                <td><strong>Reg file data sampling:</strong></td>
+                <td>Not affected</td>
+            </tr>
+            <tr>
+                <td><strong>Retbleed:</strong></td>
+                <td>Vulnerable</td>
+            </tr>
+            <tr>
+                <td><strong>Spec rstack overflow:</strong></td>
+                <td>Not affected</td>
+            </tr>
+            <tr>
+                <td><strong>Spec store bypass:</strong></td>
+                <td>Vulnerable</td>
+            </tr>
+            <tr>
+                <td><strong>Spectre v1:</strong></td>
+                <td>Mitigation; usercopy/swapgs barriers and __user pointer sanitization</td>
+            </tr>
+            <tr>
+                <td><strong>Spectre v2:</strong></td>
+                <td>Mitigation; Retpolines; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI Retpoline</td>
+            </tr>
+            <tr>
+                <td><strong>Srbds:</strong></td>
+                <td>Unknown: Dependent on hypervisor status</td>
+            </tr>
+            <tr>
+                <td><strong>Tsx async abort:</strong></td>
+                <td>Not affected</td>
+            </tr>
+        </table>
+    </div>
+
+    <hr>
+
+    <h2>Información de Red</h2>
+    <div class="section">
+        <h3>1. IP Privada</h3>
+        <code>ifconfig</code>
+        <p>
+            enp0s3: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500<br>
+            inet 192.168.1.28  netmask 255.255.255.0  broadcast 192.168.1.255<br>
+            inet6 2800:e2:c980:d38:49cb:d5d5:4350:644c  prefixlen 64  scopeid 0x0&lt;global&gt;<br>
+            inet6 fe80::a00:27ff:febc:eb8c  prefixlen 64  scopeid 0x20&lt;link&gt;<br>
+            inet6 2800:e2:c980:d38:a00:27ff:febc:eb8c  prefixlen 64  scopeid 0x0&lt;global&gt;<br>
+            ether 08:00:27:bc:eb:8c  txqueuelen 1000  (Ethernet)<br>
+            RX packets 49376  bytes 38397822 (38.3 MB)<br>
+            RX errors 0  dropped 0  overruns 0  frame 0<br>
+            TX packets 13252  bytes 1768056 (1.7 MB)<br>
+            TX errors 0  dropped 0  overruns 0  carrier 0  collisions 0
+        </p>
+    </div>
+
+</body>
+</html>
+```
